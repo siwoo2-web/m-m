@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#FAF8F3">
+    <title>구전이 | 구미새마을중앙시장 안내</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="data.js"></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="site-header">
+        <a class="brand" href="#" data-home aria-label="구전이 처음으로">
+          <span class="market-name" id="header-market"></span>
+          <span class="app-name" id="header-app"></span>
+        </a>
+        <button class="text-size-button" id="text-size-toggle" type="button" aria-pressed="false">큰 글자</button>
+      </header>
+
+      <main id="main-content" tabindex="-1">
+        <section class="view" id="home-view" aria-labelledby="home-title">
+          <div class="welcome">
+            <p class="eyebrow">시장 안내</p>
+            <h1 id="home-title">어디를 찾으세요?</h1>
+            <form class="search-form" id="home-search-form" role="search">
+              <label class="sr-only" for="home-search">점포 이름, 대표상품 또는 업종 검색</label>
+              <input id="home-search" type="search" placeholder="점포·상품·업종 검색" autocomplete="off">
+              <button type="submit" aria-label="검색">검색</button>
+            </form>
+          </div>
+
+          <nav class="main-menu" aria-label="안내 메뉴">
+            <button type="button" data-view="stores-view"><span class="menu-icon" aria-hidden="true">⌕</span>점포찾기</button>
+            <button type="button" data-view="map-view"><span class="menu-icon" aria-hidden="true">⌖</span>시장지도</button>
+            <button type="button" data-view="parking-view"><span class="menu-icon" aria-hidden="true">P</span>주차안내</button>
+            <button type="button" id="favorites-menu-button"><span class="menu-icon" aria-hidden="true">★</span>찜한 점포</button>
+          </nav>
+
+          <section class="home-section" aria-labelledby="alleys-title">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">MARKET ALLEYS</p>
+                <h2 id="alleys-title">시장 특화 골목</h2>
+              </div>
+            </div>
+            <div class="alley-list" id="home-alley-list"></div>
+          </section>
+
+          <section class="intro-card" aria-labelledby="intro-title">
+            <p class="eyebrow">ABOUT THE MARKET</p>
+            <h2 id="intro-title">시장 소개</h2>
+            <p id="market-intro"></p>
+          </section>
+        </section>
+
+        <section class="view" id="stores-view" aria-labelledby="stores-title" hidden>
+          <button type="button" class="back-button" data-view="home-view">← 처음으로</button>
+          <div class="page-heading">
+            <p class="eyebrow">STORE GUIDE</p>
+            <h1 id="stores-title">점포찾기</h1>
+          </div>
+          <form class="search-form store-search" id="store-search-form" role="search">
+            <label class="sr-only" for="store-search">점포 이름, 대표상품 또는 업종 검색</label>
+            <input id="store-search" type="search" placeholder="점포·상품·업종 검색" autocomplete="off">
+            <button type="submit">검색</button>
+          </form>
+          <div class="category-list" id="category-list" aria-label="업종 선택"></div>
+          <div class="results-heading">
+            <h2>점포 목록</h2>
+            <p id="store-count" aria-live="polite"></p>
+          </div>
+          <div class="store-list" id="store-list"></div>
+        </section>
+
+        <section class="view" id="map-view" aria-labelledby="map-title" hidden>
+          <button type="button" class="back-button" data-view="home-view">← 처음으로</button>
+          <div class="page-heading">
+            <p class="eyebrow">MARKET GUIDE</p>
+            <h1 id="map-title">시장지도</h1>
+            <p class="page-description">골목 배치와 점포 위치를 예시로 확인할 수 있습니다.</p>
+          </div>
+          <div class="map-content" id="map-content"></div>
+        </section>
+
+        <section class="view" id="parking-view" aria-labelledby="parking-title" hidden>
+          <button type="button" class="back-button" data-view="home-view">← 처음으로</button>
+          <div class="page-heading">
+            <p class="eyebrow">PARKING GUIDE</p>
+            <h1 id="parking-title">주차안내</h1>
+          </div>
+          <div class="parking-list" id="parking-list"></div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <strong id="footer-market"></strong>
+        <address id="footer-address"></address>
+        <a id="footer-phone"></a>
+      </footer>
+    </div>
+
+    <div class="sheet-backdrop" id="sheet-backdrop" hidden>
+      <section class="detail-sheet" id="detail-sheet" role="dialog" aria-modal="true" aria-labelledby="detail-name" tabindex="-1">
+        <button class="sheet-close" id="sheet-close" type="button" aria-label="상세정보 닫기">×</button>
+        <div id="detail-content"></div>
+      </section>
+    </div>
+  </body>
+</html>
